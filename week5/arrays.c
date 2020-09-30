@@ -6,7 +6,7 @@
 
 int main(void)
 {
-    const int SIZE = 5;
+    const SIZE = 5; //Esta dando erro quando inicia o size dessa forma se trocarmos por 5 funciona
 
     int grades[SIZE] = {78, 67, 92, 83, 88};
     double sum = 0.0;

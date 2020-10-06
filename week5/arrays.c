@@ -6,9 +6,9 @@
 
 int main(void)
 {
-    const SIZE = 5; //Esta dando erro quando inicia o size dessa forma se trocarmos por 5 funciona
+    const int SIZE = 5; //Esta dando erro quando inicia o size dessa forma se trocarmos por 5 funciona
 
-    int grades[SIZE] = {78, 67, 92, 83, 88};
+    int grades[] = {78, 67, 92, 83, 88};
     double sum = 0.0;
     int i;
 

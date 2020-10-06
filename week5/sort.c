@@ -38,7 +38,7 @@ void bubble(int data[], int how_many)
 
     for ( i = 0; i < how_many; i++)
     {
-        print_array(how_many, data, "\ninside bubble\n");
+        //print_array(how_many, data, "\ninside bubble\n");
         //printf("i = %d, input any int to continue:",i);
         //scanf("%d", &go_on);
         for (j = how_many - 1 ; j > i; j--)

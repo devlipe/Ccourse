@@ -21,7 +21,7 @@
 #define FILL            for (i = 0; i < POPULATION; i++) \
                         {                                \
                             data[i] = WEIGHT;            \
-                        }
+                        }  
 
 void print_data(int d[], int size)
 {

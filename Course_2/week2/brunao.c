@@ -107,10 +107,12 @@ void print_cards(cards deck[], int amount)
     {
         printf("%s of %s\n",print_pips(deck[i].pips), print_suit(deck[i].suit));
     }
-}int * probability (cards deck[], int amount)
+}
+int * probability (cards deck[], int amount)
 {
-    int full_house = 0 , four_kind = 0, three_kind = 0, two_pair = 0, pair = 0, no_pair = 0 ;
-
+    
+    int full_house = 0 , four_kind = 0, three_kind = 0, two_pair = 0, pair = 0, no_pair = 0;
+    
     for (int p = 0; p < 1000000; p++)
     {
         int count = 0, t = 100, change = 0;
@@ -161,26 +163,24 @@ void print_cards(cards deck[], int amount)
         {
         no_pair+=1;
         }
-    } 
-
-    static int result[6] = {0};
+    }  
+    
+    int result[6];
     result[0] = full_house;
     result[1] = four_kind;
     result[2] = three_kind;
     result[3] = two_pair;
     result[4] = pair;
     result[5] = no_pair;
-
+    
     return result;
 }
-
 int main()
 {
     int amount = 52;
     cards deck[amount];
     int i = 0;
     double prob = 0.0;
-     
     
     for (int j = 0; j < 4; j++)
     {
@@ -192,21 +192,22 @@ int main()
     }
     print_cards (deck,amount);
     printf("\nShuffling...\n");
-
-    int * result;
-    result = probability (deck, amount);  
-
-    prob = result[0]/1000000.0;
+        
+    int *result;
+    
+    result = probability (deck, amount);
+    
+    prob = result[0]/1000000;
     printf("\nThe probability of a full house is %lf\n", prob);
-    prob = result[1]/1000000.0;
+    prob = result[1]/1000000;
     printf("\nThe probability of a four kind is %lf\n", prob);
-    prob = result[2]/1000000.0;
+    prob = result[2]/1000000;
     printf("\nThe probability of a three kind is %lf\n", prob);
-    prob = result[3]/1000000.0;
+    prob = result[3]/1000000;
     printf("\nThe probability of a two pair is %lf\n", prob);
-    prob = result[4]/1000000.0;
+    prob = result[4]/1000000;
     printf("\nThe probability of a pair is %lf\n", prob);
-    prob = result[5]/1000000.0;
+    prob = result[5]/1000000;
     printf("\nThe probability of no pair is %lf\n", prob);
 
     return 0;

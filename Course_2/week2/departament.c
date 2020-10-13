@@ -7,6 +7,7 @@
 #include<stdlib.h>
 #include<string.h>
 
+
 typedef enum Departament {HR, Sales, Research, Software, Executive}Departament;
 
 typedef struct business
@@ -43,6 +44,7 @@ const char* print_departament (Departament dep)
 }
 void ssn_generator(employee e[])
 {
+    srand(time(NULL));
     for (int i = 0; i < 10; i++) 
     {
         e[i].SSN = rand()% 100000 + 100000; 
@@ -50,6 +52,7 @@ void ssn_generator(employee e[])
 }
 void salary_generator(employee e[])
 {
+    srand(time(NULL));
     for (int i = 0; i < 10; i++) 
     {
         e[i].annual_salary = rand()% 70000 + 70000; 
@@ -86,7 +89,7 @@ int main()
     int k;
     for(k=0;k<10;k++)
     {
-        printf("\nEMPLOYEE NAME: %s \nANNUAL SALARY: US$%d per month\nDEPARTMENT: %s\nSSN: %u\n",e[k].name, e[k].annual_salary, print_departament(e[k].dep), e[k].SSN);
+        printf("\nEMPLOYEE NAME: %s \nANNUAL SALARY: US$%d \nDEPARTMENT: %s\nSSN: %u\n",e[k].name, e[k].annual_salary, print_departament(e[k].dep), e[k].SSN);
         
         printf("\n------------------------------------------------\n");
     }

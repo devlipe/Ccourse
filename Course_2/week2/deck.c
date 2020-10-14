@@ -7,16 +7,19 @@
 #include<time.h>
 #include<string.h>
 
-typedef enum  suits{hearts, spades, diamonds, clubs}suits;
+// Declaring the 2 new types we need to make the cards
+typedef enum  suits{hearts, spades, diamonds, clubs}suits; 
 
 typedef enum pips{Ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king}pips;
 
+//Here we have the card using the 2 new types
 typedef struct cards
 {
     suits suit;
     pips pips;
 }cards;
 
+//The next thow functions we need to print the inicial deck
 const char* print_pips (pips pips)
 {
     switch (pips)
@@ -86,9 +89,10 @@ const char* print_suit(suits suit)
         break;
     }
 }
+//In this part the function will suffle the deck
 void shuffle_cards(cards deck[], int amount)
 {
-    srand(time(NULL));
+    srand(time(NULL)); // using the time to get a different result every time 
     int changer = 0;
     cards temp; 
 
@@ -96,7 +100,7 @@ void shuffle_cards(cards deck[], int amount)
     {
         changer = rand()% amount;
 
-        temp = deck[i];
+        temp = deck[i]; //Here we make sure that every card will be in the suffled deck, because we change places with the cards
         deck[i] = deck[changer];
         deck[changer] = temp;
     }
@@ -107,11 +111,13 @@ void print_cards(cards deck[], int amount)
     {
         printf("%s of %s\n",print_pips(deck[i].pips), print_suit(deck[i].suit));
     }
-}int * probability (cards deck[], int amount)
+}
+// here is the part that we call the suffling function and see what we got
+int * probability (cards deck[], int amount)
 {
-    int full_house = 0 , four_kind = 0, three_kind = 0, two_pair = 0, pair = 0, no_pair = 0 ;
+    int full_house = 0 , four_kind = 0, three_kind = 0, two_pair = 0, pair = 0, no_pair = 0 ; // for counting the possibilities
 
-    for (int p = 0; p < 1000000; p++)
+    for (int p = 0; p < 1000000000; p++) //this is a BILLION times loop
     {
         int count = 0, t = 100, change = 0;
         shuffle_cards(deck, amount);
@@ -120,7 +126,7 @@ void print_cards(cards deck[], int amount)
         {
             for (int j = i + 1; j < 7; j++)
             {
-                if(deck[i].pips == deck[j].pips)
+                if(deck[i].pips == deck[j].pips) // Here we will see how much the card repeet, a full house is 5 times, a four kind is 4 times with  change etc...
                 {
                     if (t != deck[i].pips)
                     {
@@ -134,6 +140,7 @@ void print_cards(cards deck[], int amount)
                 }
             }
         }
+        //now we evalueate the count and changes that we had
         if (count == 5)
         {
             full_house+=1;
@@ -162,7 +169,7 @@ void print_cards(cards deck[], int amount)
         no_pair+=1;
         }
     } 
-
+    // we pass the results as an array to the main funcion
     static int result[6] = {0};
     result[0] = full_house;
     result[1] = four_kind;
@@ -182,7 +189,7 @@ int main()
     double prob = 0.0;
      
     
-    for (int j = 0; j < 4; j++)
+    for (int j = 0; j < 4; j++) // Here we inicialize the deck
     {
         for (int k = 0; k < 13; k++)
         {
@@ -196,17 +203,17 @@ int main()
     int * result;
     result = probability (deck, amount);  
 
-    prob = result[0]/1000000.0;
+    prob = result[0]/1000000000.0;
     printf("\nThe probability of a full house is %lf\n", prob);
-    prob = result[1]/1000000.0;
+    prob = result[1]/1000000000.0;
     printf("\nThe probability of a four kind is %lf\n", prob);
-    prob = result[2]/1000000.0;
+    prob = result[2]/1000000000.0;
     printf("\nThe probability of a three kind is %lf\n", prob);
-    prob = result[3]/1000000.0;
+    prob = result[3]/1000000000.0;
     printf("\nThe probability of a two pair is %lf\n", prob);
-    prob = result[4]/1000000.0;
+    prob = result[4]/1000000000.0;
     printf("\nThe probability of a pair is %lf\n", prob);
-    prob = result[5]/1000000.0;
+    prob = result[5]/1000000000.0;
     printf("\nThe probability of no pair is %lf\n", prob);
 
     return 0;

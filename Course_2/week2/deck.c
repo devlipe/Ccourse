@@ -6,7 +6,6 @@
 #include<stdlib.h>
 #include<time.h>
 #include<string.h>
-#define amount = 52;
 
 // Declaring the 2 new types we need to make the cards
 typedef enum  suits{hearts, spades, diamonds, clubs}suits; 
@@ -91,7 +90,7 @@ const char* print_suit(suits suit)
     }
 }
 //In this part the function will suffle the deck
-void shuffle_cards(cards deck[])
+void shuffle_cards(cards deck[], int amount)
 {
     srand(time(NULL)); // using the time to get a different result every time 
     int changer = 0;
@@ -184,7 +183,7 @@ int * probability (cards deck[], int amount)
 
 int main()
 {
-    
+    int amount = 52;
     cards deck[amount];
     int i = 0;
     double prob = 0.0;

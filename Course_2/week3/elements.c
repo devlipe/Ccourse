@@ -49,7 +49,7 @@ list * terminal_to_list(int size)
     scanf("%s", &name);
     scanf("%s", &symbol);
     scanf("%lf", &weight);
-    list * head = creat_list(name, symbol, weight); // First of all we need to have the first element and the add the others
+    list * head = creat_list(name, symbol, weight); // First of all we need to have the first element and the add the othersasdf
 
     for (int i = 1; i < size; i++)
     {

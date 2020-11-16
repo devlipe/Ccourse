@@ -117,7 +117,7 @@ int * probability (cards deck[], int amount)
 {
     int full_house = 0 , four_kind = 0, three_kind = 0, two_pair = 0, pair = 0, no_pair = 0 ; // for counting the possibilities
 
-    for (int p = 0; p < 1000000000; p++) //this is a BILLION times loop
+    for (int p = 0; p < 10000000; p++) //this is a BILLION times loop
     {
         int count = 0, t = 100, change = 0;
         shuffle_cards(deck, amount);
@@ -203,17 +203,17 @@ int main()
     int * result;
     result = probability (deck, amount);  
 
-    prob = result[0]/1000000000.0;
+    prob = result[0]/10000000.0;
     printf("\nThe probability of a full house is %lf\n", prob);
-    prob = result[1]/1000000000.0;
+    prob = result[1]/10000000.0;
     printf("\nThe probability of a four kind is %lf\n", prob);
-    prob = result[2]/1000000000.0;
+    prob = result[2]/10000000.0;
     printf("\nThe probability of a three kind is %lf\n", prob);
-    prob = result[3]/1000000000.0;
+    prob = result[3]/10000000.0;
     printf("\nThe probability of a two pair is %lf\n", prob);
-    prob = result[4]/1000000000.0;
+    prob = result[4]/10000000.0;
     printf("\nThe probability of a pair is %lf\n", prob);
-    prob = result[5]/1000000000.0;
+    prob = result[5]/10000000.0;
     printf("\nThe probability of no pair is %lf\n", prob);
 
     return 0;

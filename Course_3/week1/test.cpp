@@ -1,46 +1,38 @@
-// Convert this program to C++
-// change to C++ io
-// change to one line comments
-// change defines of constants to const
-// change array to vector<>
-// inline any short function
+	#include <iostream>
+	#include <vector>
+	
 
-#include <iostream>
-#include <vector>
+	using namespace std;
+	
 
-using namespace std;
+	const int N = 40;
+	
 
-const int N = 40;	// length of vector
+	inline void sum(int &p, const vector<int> &data)
+	{
+		p = 0;
+		for (int i=0; i<data.size(); i++)
+		{
+			p += data[i];
+		}
+	}
+	
 
-/**
- * @brief Sums up N numbers
- *
- * @param accum	The accumulative value
- * @param size	The size of the vector
- * @param data	The vector holding the data elements
- * @return		The sum of all elements in vector
- */
-template <typename T>
-T const& sum(T& accum, const T size, const vector<int>& data) {
-	accum = 0;
+	int main()
+	{
+		vector<int> data;
+		for (int i=0; i<N; i++)
+		{
+			data.push_back(i);
+		}
+	
 
-	for(int i = 0; i < size; ++i)
-		accum += data[i];
+		int accum;
+		sum(accum, data);
+	
 
-	return accum;
-}
+		cout << "sum is " << accum << endl;
+	
 
-int main(int argc, char** argv) {
-	int accum = 0;
-
-	vector<int> data(N);
-
-	for(int i = 0; i < N; ++i)
-		data[i] = i;
-
-	sum(accum, N, data);
-
-	cout << "sum is " << accum << endl;
-
-	return 0;
-}
+		return 0;
+	}

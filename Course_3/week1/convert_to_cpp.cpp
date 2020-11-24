@@ -7,9 +7,9 @@
 
 
 #include <iostream>
-#include <vector>
+#include <vector> // need vector
 #include <numeric>
-using namespace std;
+using namespace std; // standard namespace
 const int N = 40;
 
 inline void sum(int &p, int n, vector<int> &v)
@@ -17,7 +17,7 @@ inline void sum(int &p, int n, vector<int> &v)
     int i;
 
     p = 0;
-    p = accumulate(v.begin(), v.end(), 0);
+    p = accumulate(v.begin(), v.end(), 0); // sum all numbers in a vector 
 }
 
 int main()
@@ -30,9 +30,9 @@ int main()
     {
         data[i] = i;
     }
-    vector<int> v(begin(data), end(data));
+    vector<int> v(begin(data), end(data)); // transform the array in a vector
     sum(accum, N, v);
-    printf("sum is %d\n", accum);
+    cout << "sum is " << accum << endl;
 
     return 0;
 }

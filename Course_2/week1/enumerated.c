@@ -8,7 +8,7 @@
 enum day {sun, mon, tue, wed, thu, fri, sat};// declare type
 typedef enum day day;
 
-void print_day ( day d)
+void print_day (day d)
 {
     switch (d)
     {
@@ -50,6 +50,7 @@ int main(void)
 {
     enum day today = wed;
 
+    printf("%s", today);
     print_day(today);
     printf("\n\n");
     print_day(7);

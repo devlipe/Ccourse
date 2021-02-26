@@ -8,12 +8,13 @@ using namespace std;
 
 class point
 {
+    private: 
+        double x, y;
+
     public:
         double getx() {return x;}
         void setx(double v){x = v;}
-        double x, y;
-
-    private: 
+        
 
 };
 
